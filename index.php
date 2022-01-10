@@ -34,7 +34,8 @@ include 'config.php';
     <main class="form-signin">
   
         <form method="POST" action="">
-            <h1 class="h3 mb-3 fw-normal">Faça Login</h1>
+            <h1 class="h3 mb-3 fw-normal">Login</h1>
+            <p>Por Favor, Insira seus dados de acesso!</p>
             <?php
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
             //var_dump($dados);
