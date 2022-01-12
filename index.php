@@ -24,7 +24,6 @@ include 'config.php';
     <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
     <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
 
-
     <!-- Css -->
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
