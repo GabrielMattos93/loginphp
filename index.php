@@ -27,7 +27,6 @@ include 'config.php';
     <!-- Css -->
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
-
 <body class="text-center">
 
     <main class="form-signin">
@@ -46,11 +45,11 @@ include 'config.php';
             ?>
             <div class="form-floating">
                 <input type="email" class="form-control" id="floatingInput" placeholder="Digite seu email" required>
-                <label for="floatingInput">Email</label>
+                <label for="email">Email</label>
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Senha" required>
-                <label for="floatingPassword">Senha</label>
+                <label for="senha">Senha</label>
             </div>
 
             <div class="checkbox mb-3">
