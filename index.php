@@ -35,20 +35,17 @@ include 'config.php';
             <h1 class="h3 mb-3 fw-normal">Login</h1>
             <p>Por Favor, Insira seus dados de acesso!</p>
             <?php
-            $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-            //var_dump($dados);
-            
+            $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);    
             if(!empty($dados['btnlogin'])){
                 //var_dump($dados);
             }
-        
             ?>
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="Digite seu email" required>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email" required>
                 <label for="email">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Senha" required>
+                <input type="password" class="form-control" id="senha" placeholder="Senha" required>
                 <label for="senha">Senha</label>
             </div>
 
