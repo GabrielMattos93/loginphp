@@ -37,15 +37,26 @@ include 'config.php';
             <?php
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);    
             if(!empty($dados['btnlogin'])){
-                //var_dump($dados);
+                var_dump($dados);
+
+                $query_usuario ="SELECT id, nome, usuario, senha 
+                FROM usuarios 
+                WHERE usuario =:usuario
+                LIMIT 1"; 
+                $result_usuario = $conn->prepare($query_usuario); 
+                $result_usuario->bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR); 
+                $result_usuario->execute(); 
+
+               $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC); 
+                var_dump($row_usuario);
             }
             ?>
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" placeholder="Digite seu email" required>
+                <input type="email" class="form-control" id="email" name="email"  placeholder="Digite seu email" required>
                 <label for="email">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+                <input type="password" class="form-control" id="senha" name="senha"  placeholder="Senha" required>
                 <label for="senha">Senha</label>
             </div>
 
