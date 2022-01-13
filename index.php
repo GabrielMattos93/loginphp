@@ -37,7 +37,7 @@ include 'config.php';
             <?php
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);    
             if(!empty($dados['btnlogin'])){
-                var_dump($dados);
+                //var_dump($dados);
 
                 $query_usuario ="SELECT id, nome, usuario, senha 
                 FROM usuarios 
@@ -48,7 +48,7 @@ include 'config.php';
                 $result_usuario->execute(); 
 
                $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC); 
-                var_dump($row_usuario);
+                //var_dump($row_usuario);
             }
             ?>
             <div class="form-floating">
