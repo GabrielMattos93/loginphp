@@ -1,5 +1,4 @@
 <?php
-session_start(); 
 include 'config.php'; 
 ?>
 <!doctype html>
@@ -48,21 +47,8 @@ include 'config.php';
                 $result_usuario->bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR); 
                 $result_usuario->execute(); 
 
-                if(($result_usuario) AND ($result_usuario->rowCount() != 0)){
-
-                    $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC); 
+               $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC); 
                 //var_dump($row_usuario);
-                    if(password_verify($dados['senha'], $row_usuario['senha'])){
-                        echo"Usuário Logado"; 
-                    }
-                }else{
-                    $_SESSION['msg'] = "<p style='color:#ea2020'>Erro: Usuário ou senha inválida!</p>"; 
-
-                }
-               if(isset( $_SESSION['msg'])){
-                   echo $_SESSION['msg']; 
-                   unset($_SESSION['msg']); 
-               }
             }
             ?>
             <div class="form-floating">
