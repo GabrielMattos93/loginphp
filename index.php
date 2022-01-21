@@ -1,4 +1,6 @@
 <?php
+session_start(); 
+ob_start();
 include 'config.php'; 
 ?>
 <!doctype html>
@@ -46,13 +48,29 @@ include 'config.php';
                 $result_usuario = $conn->prepare($query_usuario); 
                 $result_usuario->bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR); 
                 $result_usuario->execute(); 
+                if(($result_usuario) AND ($result_usuario->rowCount() !=0)) {
+                    $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC); 
+                    //var_dump($row_usuario);
+                    if(password_verify($dados['senha'], $row_usuario['senha']));
+                     {
+                        $_SESSION['id'] = $row_usuario['id'];
+                        $_SESSION['nome'] = $row_usuario['nome'];
+                        //redirecionando
+                        header("Location: admin.php"); 
+                    }
+                }else{
+                    $_SESSION['msg'] = "<p style='color:#ef1313'>Erro: Usuário ou Senha Inválida</p>"; 
+                }
 
-               $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC); 
-                //var_dump($row_usuario);
+                if(isset($_SESSION['msg'])){
+                    echo ($_SESSION['msg']); 
+                    unset($_SESSION['msg']); 
+                }
+             
             }
             ?>
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" name="email"  placeholder="Digite seu email" required>
+                <input type="email" class="form-control" id="usuario" name="usuario"  placeholder="Digite seu email" required>
                 <label for="email">Email</label>
             </div>
             <div class="form-floating">
