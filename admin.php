@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<h1>Bem Vindo</h1>
+<h1>Bem Vindo!</h1>
+<a href="logout.php"> Sair</a>
     
 </body>
 </html>

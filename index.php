@@ -51,7 +51,7 @@ include 'config.php';
                 if(($result_usuario) AND ($result_usuario->rowCount() !=0)) {
                     $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC); 
                     //var_dump($row_usuario);
-                    if(password_verify($dados['senha'], $row_usuario['senha']));
+                    if(password_verify($dados['senha'],  $row_usuario['senha']));
                      {
                         $_SESSION['id'] = $row_usuario['id'];
                         $_SESSION['nome'] = $row_usuario['nome'];
